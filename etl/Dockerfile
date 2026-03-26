@@ -7,4 +7,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-CMD ["python", "task1_ingest_customer_addresses.py"]
+CMD ["python", "task1_customer_addresses_ingestion.py"]
