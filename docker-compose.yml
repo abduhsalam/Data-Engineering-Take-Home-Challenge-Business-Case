@@ -1,0 +1,38 @@
+version: "3.9"
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: majujaya-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: dw_db
+      MYSQL_USER: dw_user
+      MYSQL_PASSWORD: dw_password
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./sql:/docker-entrypoint-initdb.d
+
+  etl:
+    build: ./etl
+    container_name: majujaya-etl
+    restart: unless-stopped
+    depends_on:
+      - mysql
+    environment:
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_NAME: dw_db
+      DB_USER: dw_user
+      DB_PASSWORD: dw_password
+      FOLDER: /app/data/customer_addresses
+    volumes:
+      - ./data/customer_addresses:/app/data/customer_addresses
+    working_dir: /app
+    command: python ingest_customer_addresses.py
+
+volumes:
+  mysql_data:
