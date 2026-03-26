@@ -19,7 +19,7 @@ services:
   etl:
     build: ./etl
     container_name: majujaya-etl
-    restart: unless-stopped
+    restart: "no"
     depends_on:
       - mysql
     environment:
