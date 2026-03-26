@@ -1,4 +1,4 @@
-// Cleaning sales_raw
+-- Cleaning sales_raw
 
 CREATE TABLE customers_clean AS
 SELECT
@@ -14,7 +14,7 @@ SELECT
 FROM customers_raw;
 
 
-// Cleaning after_sales_raw
+-- Cleaning after_sales_raw
 
 CREATE TABLE sales_clean AS
 SELECT
@@ -27,7 +27,7 @@ SELECT
 FROM sales_raw;
 
 
-// Cleaning customer_addresses_raw
+-- Cleaning customer_addresses_raw
 
 CREATE TABLE after_sales_clean AS
 SELECT a.*
@@ -39,7 +39,7 @@ WHERE
   AND a.service_date IS NOT NULL;
 
 
-// Cleaning customer_addresses_raw
+-- Cleaning customer_addresses_raw
 
 CREATE TABLE customer_addresses_clean AS
 SELECT
