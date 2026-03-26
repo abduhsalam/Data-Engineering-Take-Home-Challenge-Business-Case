@@ -41,9 +41,6 @@ SELECT
   customer_id,
   address,
   city,
-  CASE
-    WHEN UPPER(province) LIKE 'DKI%' THEN 'DKI Jakarta'
-    ELSE province
-  END AS province,
+  UPPER(province) as province,
   created_at
 FROM customer_addresses_raw;
