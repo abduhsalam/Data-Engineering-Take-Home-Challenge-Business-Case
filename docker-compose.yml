@@ -32,7 +32,7 @@ services:
     volumes:
       - ./data/customer_addresses:/app/data/customer_addresses
     working_dir: /app
-    command: python ingest_customer_addresses.py
+    command: python task1_ingest_customer_addresses.py
 
 volumes:
   mysql_data:
