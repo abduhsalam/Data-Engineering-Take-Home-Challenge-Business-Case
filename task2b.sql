@@ -1,4 +1,4 @@
-// Reporting Query #1 (Sales by Class & Model)
+-- Reporting Query #1 (Sales by Class & Model)
 
 SELECT
   DATE_FORMAT(invoice_date, '%Y-%m') AS periode,
@@ -13,7 +13,7 @@ FROM sales_clean
 GROUP BY 1,2,3;
 
 
-// Reporting Query #2 (Service Count + Priority)
+-- Reporting Query #2 (Service Count + Priority)
 
 SELECT
   YEAR(a.service_date) AS periode,
